@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/button" />
+    <!--stroke width and color-->
+    <stroke
+        android:width="2dp"
+        android:color="@android:color/white" />
+
+    <!-- corner radius-->
+    <corners
+        android:radius="0dp" />
+</shape>
+
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    &lt;!&ndash;The outline turns to colorPrimary when the EditText is in focus&ndash;&gt;
+    <item android:state_enabled="true" android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white" />
+            <corners android:radius="12dp" />
+            <stroke android:width="2dp" android:color="@color/borderBg" />
+        </shape>
+    </item>
+
+    &lt;!&ndash;The outline turns to grey when the EditText is out of focus&ndash;&gt;
+    <item android:state_enabled="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white" />
+            <corners android:radius="12dp" />
+            <stroke android:width="2dp" android:color="@color/lightBorderBg" />
+        </shape>
+    </item>
+
+</selector>-->

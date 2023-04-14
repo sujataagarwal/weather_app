@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="lat_prompt">Latitude</string>
+    <string name="long_prompt">Longitude</string>
+    <string name="action_locate">Locate</string>
+    <string name="city_prompt">City</string>
+    <string name="action_weather">Check Weather</string>
+    <string name="current">Currently</string>
+
+</resources>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="weatherModel"
+            type="com.jpmorgan.weatherapp.main_screen.MainScreenViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".main_screen.MainScreenActivity">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_city"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:inputType="text"
+            android:text="@={ weatherModel.cityname }"
+            android:background="@drawable/custom_edit_text_border"
+            android:hint="@string/city_prompt"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_locate"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/button_bg"
+            android:text="@string/action_locate"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_latitude"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:inputType="numberDecimal"
+            android:text="@={ weatherModel.latitude }"
+            android:background="@drawable/custom_edit_text_border"
+            android:hint="@string/lat_prompt"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_locate" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_longitude"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:inputType="numberDecimal"
+            android:text="@={ weatherModel.longitude }"
+            android:background="@drawable/custom_edit_text_border"
+            android:hint="@string/long_prompt"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_latitude" />
+
+
+        <Button
+            android:id="@+id/btn_weather"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/button_bg"
+            android:text="@string/action_weather"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_longitude"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cnt_background"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="20dp"
+            android:padding="20dp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/bg_gradient"
+            app:layout_constraintTop_toBottomOf="@id/btn_weather">
+            <TextView
+                android:id="@+id/txt_current"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="@string/current"
+                android:visibility="invisible"
+                />
+            <TextView
+                android:id="@+id/txt_current_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_current"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="@={ weatherModel.currentTemp }"
+                android:visibility="invisible"
+                />
+            <TextView
+                android:id="@+id/txt_feelslike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_current_temp"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="@={ weatherModel.feelslike }"
+                android:visibility="invisible"
+                />
+
+            <TextView
+                android:id="@+id/txt_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="@={ weatherModel.description }"
+                android:visibility="invisible"
+                />
+
+            <TextView
+                android:id="@+id/txt_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_description"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="@={ weatherModel.humitidy }"
+                android:visibility="invisible"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
